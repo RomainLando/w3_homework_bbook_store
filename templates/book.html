@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="single-container">
+    <div>
+        <div class="single-book">
+            <h2>{{ book.title}}</h2>
+            <h4>by {{ book.author }}</h4>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing <strong>{{ book.genre }}</strong>.</p>
+        </div>
+    <form class="delete-button" action="{{ url_for('delete_book', index=index) }}" method="post">
+        <button type="submit">Remove book!</button>
+    </form>
+    </div>
+    <img src="{{ url_for('static', filename='images/open_book.jpg') }}" alt="">
+    
+</div>
+{% endblock %}

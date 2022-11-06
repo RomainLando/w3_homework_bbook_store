@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="image">
+    <img src="static/images/background.jpg" alt="bunch of books">
+    <div class="intro">
+        <div class="text">
+            <h4>Get lost in wonder</h4>
+            <h2>Your One Stop Shop for Books</h2>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam illo voluptas placeat, repellat aliquam perspiciatis earum iure eius voluptate quod numquam distinctio, nulla molestiae nostrum.</p>
+        </div>
+        <form class="home-button" action="{{ url_for('show_books') }}">
+            <button type="submit">Take me to the books!</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="books-container">
+{%for book in books%}
+    <div class="book-container">
+    {% if book.checked_out %}
+        <h2 style="color: gray;">{{ book.title}}</h2>
+        <h4 style="color: gray;">by {{ book.author }}</h4>
+        <p style="color: gray;">Lorem ipsum dolor, sit amet consectetur adipisicing <strong>{{ book.genre }}</strong>.</p>
+        <form class="checkout-button" action="{{ url_for('check_book', index=books.index(book)) }}" method="post">
+            <button type="submit">Return me!</button>
+        </form>
+        {% else %}
+        <h2><a href="/books/{{books.index(book)}}">{{ book.title}}</a></h2>
+        <h4>by {{ book.author }}</h4>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing <strong>{{ book.genre }}</strong>.</p>
+        <form class="checkout-button" action="{{ url_for('check_book', index=books.index(book)) }}" method="post">
+            <button type="submit">Check out!</button>
+        </form>
+    {% endif %}
+    </div>
+
+{% endfor %}
+</div>
+<div class="form">
+
+</div>
+{% endblock %}
